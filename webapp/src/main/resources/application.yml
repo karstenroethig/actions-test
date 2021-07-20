@@ -1,0 +1,26 @@
+#
+# Spring Boot configuration
+#  - options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,logfile
+
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+---
+
+spring:
+
+  profiles: dev
+
+server:
+  # Server only listens to localhost
+  address: 127.0.0.1

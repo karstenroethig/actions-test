@@ -1,0 +1,9 @@
+#
+# Spring Boot configuration
+#  - options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#
+
+server:
+#  port: 8080
+  # Necessary setting for reverse proxy
+  forward-headers-strategy: native

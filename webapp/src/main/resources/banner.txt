@@ -1,0 +1,1 @@
+ACTIONS-TEST ${application.version} (running on Spring Boot ${spring-boot.version})
