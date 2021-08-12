@@ -1,6 +1,6 @@
 FROM openjdk:11.0-jdk-slim
 
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=webapp/target/*.jar
 
 COPY ${JAR_FILE} /app/application.jar
 
