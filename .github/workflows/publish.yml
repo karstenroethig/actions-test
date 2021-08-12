@@ -1,9 +1,9 @@
 name: Publish Docker Image
 
 on:
-  release:
-    types:
-      - created
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   publish:
@@ -29,9 +29,15 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 
-      - name: Prepare Reg Names
-        run: |
-          echo IMAGE_TAG=$(echo ${{ github.ref }} | tr '[:upper:]' '[:lower:]' | tr -d 'v') >> $GITHUB_ENV
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: karstenroethig/actions-test
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -46,5 +52,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: |
-            ${{ env.IMAGE_TAG }}
+          tags: ${{ steps.meta.outputs.tags }}
