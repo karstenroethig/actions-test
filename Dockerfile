@@ -1,4 +1,6 @@
-FROM openjdk:11.0-jdk-slim
+ARG BASE=openjdk:11.0-jdk-slim
+
+FROM $BASE
 
 ARG JAR_FILE=webapp/target/*.jar
 
