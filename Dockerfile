@@ -1,4 +1,4 @@
-FROM openjdk:11.0-jdk-slim
+FROM adoptopenjdk:11-jdk
 
 ARG JAR_FILE=webapp/target/*.jar
 
