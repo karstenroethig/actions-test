@@ -8,7 +8,7 @@
 
 	<groupId>karstenroethig.actions-test</groupId>
 	<artifactId>actions-test-project</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>actions-test :: Project</name>
